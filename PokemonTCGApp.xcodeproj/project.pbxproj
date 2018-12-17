@@ -12,6 +12,9 @@
 		0940B55A21C82DEC00B563A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0940B55821C82DEC00B563A1 /* Main.storyboard */; };
 		0940B55C21C82DEE00B563A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0940B55B21C82DEE00B563A1 /* Assets.xcassets */; };
 		0940B55F21C82DEE00B563A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0940B55D21C82DEE00B563A1 /* LaunchScreen.storyboard */; };
+		0940B56921C8322100B563A1 /* PokemonCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B56821C8322100B563A1 /* PokemonCards.swift */; };
+		0940B56C21C83F2C00B563A1 /* CardsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B56B21C83F2C00B563A1 /* CardsAPIClient.swift */; };
+		0940B56F21C84C2800B563A1 /* CardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B56E21C84C2800B563A1 /* CardsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		0940B55B21C82DEE00B563A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0940B55E21C82DEE00B563A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0940B56021C82DEE00B563A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0940B56821C8322100B563A1 /* PokemonCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCards.swift; sourceTree = "<group>"; };
+		0940B56B21C83F2C00B563A1 /* CardsAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsAPIClient.swift; sourceTree = "<group>"; };
+		0940B56E21C84C2800B563A1 /* CardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,49 @@
 		0940B55321C82DEC00B563A1 /* PokemonTCGApp */ = {
 			isa = PBXGroup;
 			children = (
-				0940B55421C82DEC00B563A1 /* AppDelegate.swift */,
-				0940B55621C82DEC00B563A1 /* ViewController.swift */,
+				0940B56A21C8323800B563A1 /* Models */,
+				0940B56721C831F600B563A1 /* Controllers */,
 				0940B55821C82DEC00B563A1 /* Main.storyboard */,
-				0940B55B21C82DEE00B563A1 /* Assets.xcassets */,
-				0940B55D21C82DEE00B563A1 /* LaunchScreen.storyboard */,
+				0940B56D21C83F3700B563A1 /* API Clients */,
+				0940B56621C831D600B563A1 /* Supporting Files */,
 				0940B56021C82DEE00B563A1 /* Info.plist */,
 			);
 			path = PokemonTCGApp;
+			sourceTree = "<group>";
+		};
+		0940B56621C831D600B563A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0940B56E21C84C2800B563A1 /* CardsTableViewCell.swift */,
+				0940B55421C82DEC00B563A1 /* AppDelegate.swift */,
+				0940B55B21C82DEE00B563A1 /* Assets.xcassets */,
+				0940B55D21C82DEE00B563A1 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0940B56721C831F600B563A1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0940B55621C82DEC00B563A1 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0940B56A21C8323800B563A1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0940B56821C8322100B563A1 /* PokemonCards.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0940B56D21C83F3700B563A1 /* API Clients */ = {
+			isa = PBXGroup;
+			children = (
+				0940B56B21C83F2C00B563A1 /* CardsAPIClient.swift */,
+			);
+			path = "API Clients";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +177,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0940B55721C82DEC00B563A1 /* ViewController.swift in Sources */,
+				0940B56F21C84C2800B563A1 /* CardsTableViewCell.swift in Sources */,
+				0940B56C21C83F2C00B563A1 /* CardsAPIClient.swift in Sources */,
 				0940B55521C82DEC00B563A1 /* AppDelegate.swift in Sources */,
+				0940B56921C8322100B563A1 /* PokemonCards.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
