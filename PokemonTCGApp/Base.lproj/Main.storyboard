@@ -84,5 +84,44 @@
             </objects>
             <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="kd3-PT-0op">
+            <objects>
+                <viewController storyboardIdentifier="secondVC" id="PSn-PG-1dO" customClass="DetailViewController" customModule="PokemonTCGApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H2D-QO-69h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6uD-RP-B9y">
+                                <rect key="frame" x="10.5" y="139.5" width="393" height="627"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nF8-4g-TeP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="PSn-PG-1dO" eventType="touchUpInside" id="l0g-ZD-YdW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nF8-4g-TeP" firstAttribute="top" secondItem="AzL-bc-0XW" secondAttribute="top" id="E3J-Yh-dPq"/>
+                            <constraint firstItem="6uD-RP-B9y" firstAttribute="centerX" secondItem="AzL-bc-0XW" secondAttribute="centerX" id="Kwi-nQ-5Hy"/>
+                            <constraint firstItem="6uD-RP-B9y" firstAttribute="height" secondItem="H2D-QO-69h" secondAttribute="height" multiplier="0.7" id="L7i-G4-EkL"/>
+                            <constraint firstItem="AzL-bc-0XW" firstAttribute="trailing" secondItem="nF8-4g-TeP" secondAttribute="trailing" id="OZD-CD-p32"/>
+                            <constraint firstItem="6uD-RP-B9y" firstAttribute="centerY" secondItem="AzL-bc-0XW" secondAttribute="centerY" id="OsC-Xk-hbT"/>
+                            <constraint firstItem="6uD-RP-B9y" firstAttribute="width" secondItem="H2D-QO-69h" secondAttribute="width" multiplier="0.95" id="P9H-w4-rfw"/>
+                            <constraint firstItem="nF8-4g-TeP" firstAttribute="leading" secondItem="AzL-bc-0XW" secondAttribute="leading" id="VgX-sV-Q9Q"/>
+                            <constraint firstItem="AzL-bc-0XW" firstAttribute="bottom" secondItem="nF8-4g-TeP" secondAttribute="bottom" id="eQf-nl-5MT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AzL-bc-0XW"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardImage" destination="6uD-RP-B9y" id="4o4-rv-KHu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pqH-r3-aV6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021" y="16"/>
+        </scene>
     </scenes>
 </document>

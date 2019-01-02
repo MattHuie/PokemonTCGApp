@@ -22,21 +22,31 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         cardsTableView.dataSource = self
         cardsTableView.delegate = self
-        CardsAPIClient.getAllCards { (pokemonCards, error) in
+        searchCards()
+    }
+    @objc func cardSegue(time: Timer) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailVC = storyboard.instantiateViewController(withIdentifier: "secondVC") as! DetailViewController
+        let pokeCard = time.userInfo as? String
+        detailVC.pokeCard = pokeCard
+        
+        present(detailVC, animated: true, completion: nil)
+    }
+    private func searchCards() {
+        CardsAPIClient.getCards { (error, cards) in
             if let error = error {
-                print("error: \(error)")
-            }
-            if let pokemonCards = pokemonCards {
-                self.pokemonCards = pokemonCards
+                print(error.errorMessage())
+            } else {
+                if let cards = cards {
+                    self.pokemonCards = cards
+                }
             }
         }
     }
 }
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(pokemonCards.count)
         return pokemonCards.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,20 +54,7 @@ extension ViewController: UITableViewDataSource {
         let cardToSet = pokemonCards[indexPath.row]
         cell.cardNameLabel.text = "Name: \(cardToSet.name)"
         cell.superTypeLabel.text = "Card Type: \(cardToSet.supertype)"
-        
-        DispatchQueue.main.async {
-            if let url = URL.init(string: cardToSet.imageUrlHiRes) {
-                do {
-                    let data = try Data.init(contentsOf: url)
-                    if let image = UIImage.init(data: data) {
-                        cell.cardImage.image = image
-                    }
-                } catch {
-                    print("immage error: \(error)")
-                }
-            }
-        }
-      
+        cell.cardImage.image = UIImage(named: "pokemonCardBack")
         return cell
     }
 }
@@ -65,5 +62,32 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Pokemon TCG Base Set"
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = cardsTableView.cellForRow(at: indexPath) as! CardsTableViewCell
+        CardsAPIClient.getCards { (error, cards) in
+            if let error = error {
+                print(error.errorMessage())
+            } else if let cards = cards {
+                if let urlImage = cards[indexPath.row].imageUrlHiRes {
+                    ImageHelper.fetchImage(urlString: urlImage) { (error, image) in
+                        if let error = error {
+                            print("error at imagehelper \(error)")
+                        } else if let image = image {
+                            cell.cardImage.image = image
+                            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.cardSegue), userInfo: urlImage, repeats: false)
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
+
+
 

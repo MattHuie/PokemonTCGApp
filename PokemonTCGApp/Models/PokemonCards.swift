@@ -14,7 +14,7 @@ struct PokemonCards: Codable {
 struct CardInfo: Codable {
     let name: String
     let nationalPokedexNumber: Int?
-    let imageUrlHiRes: String
+    let imageUrlHiRes: String?
     let types: [String]?
     let supertype: String
     let subtype: String?
