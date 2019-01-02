@@ -11,20 +11,12 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet weak var cardImage: UIImageView!
     
-    
     var pokeCard: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "pokemonCardBack")
-        backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
-        self.view.insertSubview(backgroundImage, at: 0)
         updateUI()
-
-        
     }
-    
     func updateUI() {
         if let url = pokeCard{
             ImageHelper.fetchImage(urlString: url) { (error, image) in

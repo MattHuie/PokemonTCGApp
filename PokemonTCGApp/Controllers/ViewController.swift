@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var cardsTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var pokemonCards = [CardInfo]() {
         didSet{
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         cardsTableView.dataSource = self
         cardsTableView.delegate = self
+        searchBar.delegate = self
         searchCards()
     }
     @objc func cardSegue(time: Timer) {
@@ -33,7 +35,7 @@ class ViewController: UIViewController {
         present(detailVC, animated: true, completion: nil)
     }
     private func searchCards() {
-        CardsAPIClient.getCards { (error, cards) in
+        CardsAPIClient.getCards(keyword: "") { (error, cards) in
             if let error = error {
                 print(error.errorMessage())
             } else {
@@ -69,7 +71,7 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = cardsTableView.cellForRow(at: indexPath) as! CardsTableViewCell
-        CardsAPIClient.getCards { (error, cards) in
+        CardsAPIClient.getCards(keyword: "") { (error, cards) in
             if let error = error {
                 print(error.errorMessage())
             } else if let cards = cards {
@@ -80,7 +82,6 @@ extension ViewController: UITableViewDelegate {
                         } else if let image = image {
                             cell.cardImage.image = image
                             Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.cardSegue), userInfo: urlImage, repeats: false)
-                            
                         }
                     }
                 }
@@ -88,6 +89,18 @@ extension ViewController: UITableViewDelegate {
         }
     }
 }
-
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let keyword = searchBar.text {
+            CardsAPIClient.getCards(keyword: keyword) { (error, card) in
+                if let error = error {
+                    print("Error: \(error)")
+                } else if let card = card {
+                    self.pokemonCards = card
+                }
+            }
+        }
+    }
+}
 
 

@@ -9,15 +9,20 @@
 import Foundation
 
 final class CardsAPIClient {
-    static func getCards (completionHandler: @escaping (AppError?, [CardInfo]?) -> Void) {
+    static func getCards (keyword: String, completionHandler: @escaping (AppError?, [CardInfo]?) -> Void) {
         let urlString = "https://api.pokemontcg.io/v1/cards?setCode=base1"
         NetworkHelper.performDataTask(urlString: urlString, httpMethod: "GET") { (error, data, response) in
             if let error = error {
                 completionHandler(error, nil)
             } else if let data = data {
                 do {
-                   let cards = try JSONDecoder().decode(PokemonCards.self, from: data)
-                    completionHandler(nil, cards.cards)
+                    if keyword.isEmpty {
+                        let cards = try JSONDecoder().decode(PokemonCards.self, from: data)
+                        completionHandler(nil, cards.cards)
+                    } else {
+                        let cards = try JSONDecoder().decode(PokemonCards.self, from: data)
+                        completionHandler(nil, cards.cards.filter{$0.name.lowercased().contains(keyword.lowercased())})
+                    }
                 } catch {
                     completionHandler(AppError.decodingError(error), nil)
                 }
