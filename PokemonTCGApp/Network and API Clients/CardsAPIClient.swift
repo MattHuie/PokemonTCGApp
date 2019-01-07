@@ -11,7 +11,7 @@ import Foundation
 final class CardsAPIClient {
     static func getCards (keyword: String, completionHandler: @escaping (AppError?, [CardInfo]?) -> Void) {
         let urlString = "https://api.pokemontcg.io/v1/cards?setCode=base1"
-        NetworkHelper.performDataTask(urlString: urlString, httpMethod: "GET") { (error, data, response) in
+        NetworkHelper.shared.performDataTask(endpointURLString: urlString, httpMethod: "GET", httpBody: nil) { (error, data, response) in
             if let error = error {
                 completionHandler(error, nil)
             } else if let data = data {

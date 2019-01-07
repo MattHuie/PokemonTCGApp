@@ -19,6 +19,8 @@
 		0940B57521CAE7E100B563A1 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B57421CAE7E100B563A1 /* ImageHelper.swift */; };
 		0940B57721CAE8CC00B563A1 /* CardsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B57621CAE8CC00B563A1 /* CardsAPIClient.swift */; };
 		0940B57921CAFC9100B563A1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B57821CAFC9100B563A1 /* DetailViewController.swift */; };
+		09D295E521E3C5BC004157D6 /* PokeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D295E421E3C5BC004157D6 /* PokeCollectionViewCell.swift */; };
+		09D295E721E3C867004157D6 /* CardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D295E621E3C867004157D6 /* CardCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		0940B57421CAE7E100B563A1 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		0940B57621CAE8CC00B563A1 /* CardsAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsAPIClient.swift; sourceTree = "<group>"; };
 		0940B57821CAFC9100B563A1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		09D295E421E3C5BC004157D6 /* PokeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeCollectionViewCell.swift; sourceTree = "<group>"; };
+		09D295E621E3C867004157D6 /* CardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +97,9 @@
 			isa = PBXGroup;
 			children = (
 				0940B55621C82DEC00B563A1 /* ViewController.swift */,
+				09D295E621E3C867004157D6 /* CardCollectionViewController.swift */,
 				0940B57821CAFC9100B563A1 /* DetailViewController.swift */,
+				09D295E421E3C5BC004157D6 /* PokeCollectionViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0940B57921CAFC9100B563A1 /* DetailViewController.swift in Sources */,
+				09D295E521E3C5BC004157D6 /* PokeCollectionViewCell.swift in Sources */,
 				0940B55721C82DEC00B563A1 /* ViewController.swift in Sources */,
 				0940B56F21C84C2800B563A1 /* CardsTableViewCell.swift in Sources */,
 				0940B57321CAE7B200B563A1 /* AppError.swift in Sources */,
@@ -197,6 +204,7 @@
 				0940B57721CAE8CC00B563A1 /* CardsAPIClient.swift in Sources */,
 				0940B56921C8322100B563A1 /* PokemonCards.swift in Sources */,
 				0940B57521CAE7E100B563A1 /* ImageHelper.swift in Sources */,
+				09D295E721E3C867004157D6 /* CardCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

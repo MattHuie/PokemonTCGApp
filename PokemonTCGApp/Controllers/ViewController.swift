@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var cardsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    
     var pokemonCards = [CardInfo]() {
         didSet{
             DispatchQueue.main.async {
@@ -76,7 +77,7 @@ extension ViewController: UITableViewDelegate {
                 print(error.errorMessage())
             } else if let cards = cards {
                 if let urlImage = cards[indexPath.row].imageUrlHiRes {
-                    ImageHelper.fetchImage(urlString: urlImage) { (error, image) in
+                    ImageHelper.shared.fetchImage(urlString: urlImage) { (error, image) in
                         if let error = error {
                             print("error at imagehelper \(error)")
                         } else if let image = image {
@@ -100,7 +101,6 @@ extension ViewController: UISearchBarDelegate {
                 }
             }
         }
+        searchBar.resignFirstResponder()
     }
 }
-
-

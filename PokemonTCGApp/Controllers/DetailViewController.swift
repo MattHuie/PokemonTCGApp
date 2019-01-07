@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
     }
     func updateUI() {
         if let url = pokeCard{
-            ImageHelper.fetchImage(urlString: url) { (error, image) in
+            ImageHelper.shared.fetchImage(urlString: url) { (error, image) in
                 if let error = error {
                     print("error at imagehelper \(error)")
                 } else if let image = image {
