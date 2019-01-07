@@ -25,8 +25,7 @@ final class ImageHelper {
                 return
             }
             if let response = response {
-                // response.allHeaderFields dictionary contains useful header information such as Content-Type, Content-Length
-                // response also has the mimeType, such as image/jpeg, text/html, image/png
+               
                 let mimeType = response.mimeType ?? "no mimeType found"
                 var isValidImage = false
                 switch mimeType {

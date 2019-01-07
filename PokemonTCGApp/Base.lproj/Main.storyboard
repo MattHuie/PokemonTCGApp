@@ -58,6 +58,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="xJG-Gx-u3T" secondAttribute="trailing" constant="11" id="qYS-4M-jOt"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <connections>
                                             <outlet property="cardImage" destination="exv-yE-gIn" id="wKS-yw-gvQ"/>
                                             <outlet property="cardNameLabel" destination="xJG-Gx-u3T" id="O4A-3o-4T2"/>
@@ -83,7 +84,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Full List" id="olt-64-cUw"/>
+                    <tabBarItem key="tabBarItem" title="Full List" image="pokeball18" id="olt-64-cUw"/>
                     <connections>
                         <outlet property="cardsTableView" destination="2Jd-Es-BXO" id="a1z-8Y-mkn"/>
                         <outlet property="searchBar" destination="wyV-iu-Bf7" id="WEF-7P-MkF"/>
@@ -223,7 +224,7 @@
         <scene sceneID="uFY-CM-9yn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0R-ca-3a0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection" id="Zym-fC-128"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="baseline_grid_on_black_18dp" id="Zym-fC-128"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nJb-uL-IBM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -240,6 +241,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="baseline_grid_on_black_18dp" width="18" height="18"/>
+        <image name="pokeball18" width="18" height="18"/>
         <image name="pokemonCardBack" width="194.39999389648438" height="264.239990234375"/>
     </resources>
 </document>
